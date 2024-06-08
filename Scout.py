@@ -3,7 +3,7 @@ import random
 import time
 import argparse
 
-# Define the ports to scan
+
 ports = [21, 22, 25, 465, 587]
 
 # Function to generate random IP addresses
@@ -34,7 +34,6 @@ def scan_ports(ip, proxy=None):
         finally:
             sock.close()
 
-# Function to parse command-line arguments
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Scan random IPs for open ports")
     parser.add_argument("-p", "--proxy", help="Proxy server IP address")
@@ -52,7 +51,7 @@ def main():
         ip = generate_random_ip()
         scan_ports(ip, proxy)
         print("Waiting for next scan...")
-        time.sleep(60)  # Wait for 1 minute between scans
+        time.sleep(3)  
 
 if __name__ == "__main__":
     main()
